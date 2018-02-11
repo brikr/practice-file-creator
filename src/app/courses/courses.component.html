@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="btn-group btn-group-justified" role="group">
+    <div class="btn-group" role="group"
+      *ngFor="let preset of presets">
+      <button type="button" class="btn btn-default"
+        (click)="onPresetClick(preset)">
+        {{preset.name}}
+      </button>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-4 col-xs-6" *ngFor="let course of courses; let courseIndex = index; trackBy:customTrackBy">
+    <h3 class="course-title" (click)="onCourseClick(courses[courseIndex])">{{course.name}}</h3>
+    <div class="btn-group-vertical" data-toggle="buttons">
+      <button type="button" class="btn"
+        *ngFor="let star of courses[courseIndex].stars; let starIndex = index; trackBy:customTrackBy"
+        [ngClass]="courses[courseIndex].stars[starIndex].checked ? 'btn-primary' : 'btn-default'"
+        (click)="onStarChange(star)">
+        {{star.name}}
+      </button>
+    </div>
+  </div>
+</div>
