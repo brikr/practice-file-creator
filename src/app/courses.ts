@@ -689,6 +689,10 @@ let all = _.map(empty, course => {
     })
   }
 })
+all[17].stars[0].checked = false; // Cap Lost in SL
+all[17].stars[1].checked = false; // Cap Lost in SSL
+all[17].stars[2].checked = false; // Cap Lost in TTM
+all[19].stars[5].checked = false; // Metal Cap Switch Pressed
 
 let testBool = [
   [ true, true, true, true, true, true, true, true ],
