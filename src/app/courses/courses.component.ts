@@ -1,4 +1,4 @@
-declare var _: any;
+import * as _ from 'lodash';
 
 import { Component, OnInit } from '@angular/core';
 import { presets } from '../courses'

@@ -1,4 +1,4 @@
-declare var _: any;
+import * as _ from 'lodash';
 
 var empty = [{
   name: 'Bob-omb Battlefield',
@@ -672,6 +672,8 @@ empty = _.map(empty, course => {
     stars: _.map(course.stars, star => {
       return {
         name: star.name,
+        offset: star.offset,
+        mask: star.mask,
         checked: false
       }
     })
