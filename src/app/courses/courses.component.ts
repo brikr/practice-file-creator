@@ -34,10 +34,12 @@ export class CoursesComponent implements OnInit {
         star.checked = true;
       }
     }
+    this.courses = _.cloneDeep(this.courses); // deep clone triggers ngOnChanges
   }
 
   onStarChange(star) {
     star.checked = !star.checked;
+    this.courses = _.cloneDeep(this.courses); // deep clone triggers ngOnChanges
   }
 
   customTrackBy(index: number, obj: any): any {

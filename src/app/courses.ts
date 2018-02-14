@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-var empty = [{
+let empty = [{
   name: 'Bob-omb Battlefield',
   stars: [{
     name: 'Big Bob-omb on the Summit',
@@ -686,6 +686,8 @@ let all = _.map(empty, course => {
     stars: _.map(course.stars, star => {
       return {
         name: star.name,
+        offset: star.offset,
+        mask: star.mask,
         checked: true
       }
     })
@@ -726,6 +728,8 @@ function boolToPreset(bool) {
       stars: _.map(course.stars, (star, starIdx) => {
         return {
           name: star.name,
+          offset: star.offset,
+          mask: star.mask,
           checked: bool[courseIdx][starIdx]
         }
       })
@@ -733,7 +737,7 @@ function boolToPreset(bool) {
   });
 }
 
-export var presets = [
+export let presets = [
   {
     name: 'Empty',
     courses: empty,
