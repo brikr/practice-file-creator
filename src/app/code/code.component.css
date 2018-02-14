@@ -1,3 +1,11 @@
+.slot-selector {
+  margin-top: 20px;
+}
+
+.gs-code-header {
+  margin-top: 0;
+}
+
 .gs-code {
   font-size: 20px;
 }

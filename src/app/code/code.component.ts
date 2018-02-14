@@ -9,6 +9,27 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 })
 export class CodeComponent implements OnInit {
   @Input() courses;
+  slotOffsets = {
+    jp: {
+      'Slot A': 0x81207B00,
+      'Slot B': 0x81207B70,
+      'Slot C': 0x81207BE0,
+      'Slot D': 0x81207C50
+    },
+    us: {
+      'Slot A': 0x81207700,
+      'Slot B': 0x81207770,
+      'Slot C': 0x812077E0,
+      'Slot D': 0x81207850
+    }
+  };
+  slots = [
+    'Slot A',
+    'Slot B',
+    'Slot C',
+    'Slot D'
+  ]
+  selectedSlot = 'Slot A';
   jpCode;
   usCode;
 
@@ -18,6 +39,10 @@ export class CodeComponent implements OnInit {
   }
 
   ngOnChanges(changes) {
+    this.generateCodes();
+  }
+
+  generateCodes() {
     let bits = {};
     for (let course of this.courses) {
       for (let star of course.stars) {
@@ -40,10 +65,11 @@ export class CodeComponent implements OnInit {
     this.jpCode = '';
     this.usCode = '';
     for(let [key, value] of _.entries(bits)) {
-      let offset = ('0' + parseInt(key).toString(16)).substr(-2).toUpperCase();
+      var jpOffset = (parseInt(key) + this.slotOffsets.jp[this.selectedSlot]).toString(16).toUpperCase();
+      var usOffset = (parseInt(key) + this.slotOffsets.us[this.selectedSlot]).toString(16).toUpperCase();
       let mask = ('000' + parseInt(value.toString()).toString(16)).substr(-4).toUpperCase();
-      this.jpCode += `81207B${offset} ${mask}\n`;
-      this.usCode += `812077${offset} ${mask}\n`
+      this.jpCode += `${jpOffset} ${mask}\n`;
+      this.usCode += `${usOffset} ${mask}\n`
     }
   }
 }

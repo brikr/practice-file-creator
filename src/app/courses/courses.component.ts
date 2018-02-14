@@ -3,12 +3,17 @@ import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { presets } from '../courses'
 
+import { faDiscord, faGithub, faTwitter } from '@fortawesome/fontawesome-free-brands';
+
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+  faDiscord = faDiscord;
+  faGithub = faGithub;
+  faTwitter = faTwitter;
   presets;
   courses;
 
