@@ -9,7 +9,8 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 })
 export class CodeComponent implements OnInit {
   @Input() courses;
-  code;
+  jpCode;
+  usCode;
 
   constructor() { }
 
@@ -36,11 +37,13 @@ export class CodeComponent implements OnInit {
         }
       }
     }
-    this.code = '';
+    this.jpCode = '';
+    this.usCode = '';
     for(let [key, value] of _.entries(bits)) {
       let offset = ('0' + parseInt(key).toString(16)).substr(-2).toUpperCase();
       let mask = ('000' + parseInt(value.toString()).toString(16)).substr(-4).toUpperCase();
-      this.code += `81207B${offset} ${mask}\n`;
+      this.jpCode += `81207B${offset} ${mask}\n`;
+      this.usCode += `812077${offset} ${mask}\n`
     }
   }
 }
