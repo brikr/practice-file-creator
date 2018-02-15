@@ -39,6 +39,10 @@
         <fa-icon [icon]="faDiscord" size="4x"></fa-icon>
       </a>
     </p>
+    <div class="text-center">
+      <button type="button" class="btn btn-default" (click)="onExportClick()">Show boolean data (for debugging)</button>
+      <pre [hidden]="!debugBoolean">{{debugBoolean}}</pre>
+    </div>
   </div>
   <app-code [courses]="courses"></app-code>
 </div>

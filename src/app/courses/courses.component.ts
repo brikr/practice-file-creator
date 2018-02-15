@@ -16,6 +16,7 @@ export class CoursesComponent implements OnInit {
   faTwitter = faTwitter;
   presets;
   courses;
+  debugBoolean;
 
   constructor() {
     this.presets = presets;
@@ -23,6 +24,16 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onExportClick() {
+    this.debugBoolean = JSON.stringify(
+      _.map(this.courses, (course: any) => {
+        return _.map(course.stars, (star: any) => {
+          return star.checked;
+        });
+      })
+    );
   }
 
   onPresetClick(preset) {
