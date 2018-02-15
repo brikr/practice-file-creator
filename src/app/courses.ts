@@ -605,11 +605,11 @@ let empty = [{
 }, {
   name: 'Misc. 2',
   stars: [{
-    name: '1-Star Door',
+    name: '1-Star Door (Slide)',
     offset: 0x0A,
     mask: 0x04
   }, {
-    name: '2-Star Door',
+    name: '1-Star Door (WF)',
     offset: 0x0A,
     mask: 0x08
   }, {
