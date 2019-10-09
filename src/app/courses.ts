@@ -675,12 +675,12 @@ empty = _.map(empty, course => {
         offset: star.offset,
         mask: star.mask,
         checked: false
-      }
+      };
     })
-  }
-})
+  };
+});
 
-let all = _.map(empty, course => {
+const all = _.map(empty, course => {
   return {
     name: course.name,
     stars: _.map(course.stars, star => {
@@ -689,16 +689,16 @@ let all = _.map(empty, course => {
         offset: star.offset,
         mask: star.mask,
         checked: true
-      }
+      };
     })
-  }
-})
+  };
+});
 all[17].stars[0].checked = false; // Cap Lost in SL
 all[17].stars[1].checked = false; // Cap Lost in SSL
 all[17].stars[2].checked = false; // Cap Lost in TTM
 all[19].stars[5].checked = false; // Metal Cap Switch Pressed
 
-let testBool = [
+const testBool = [
   [ true, true, true, true, true, true, true, true ],
   [ false, true, true, true, true, false, true, true ],
   [ true, true, true, true, false, true, false, true ],
@@ -731,7 +731,7 @@ function boolToPreset(bool) {
           offset: star.offset,
           mask: star.mask,
           checked: bool[courseIdx][starIdx]
-        }
+        };
       })
     };
   });
@@ -748,4 +748,4 @@ export let presets = [
     name: 'Test',
     courses: boolToPreset(testBool)
   }
-]
+];
