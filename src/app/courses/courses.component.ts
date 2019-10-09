@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { Component, OnInit } from '@angular/core';
-import { presets } from '../courses'
+import { presets } from '../courses';
 
 import { faDiscord, faGithub, faTwitter } from '@fortawesome/fontawesome-free-brands';
 
@@ -42,11 +42,11 @@ export class CoursesComponent implements OnInit {
 
   onCourseClick(course) {
     if (course.stars.every(s => s.checked)) {
-      for(let star of course.stars) {
+      for (const star of course.stars) {
         star.checked = false;
       }
     } else {
-      for(let star of course.stars) {
+      for (const star of course.stars) {
         star.checked = true;
       }
     }
